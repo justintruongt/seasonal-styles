@@ -36,15 +36,11 @@
 	margin-left:5%;
 }
 
-div#myDiv{
-   /*() background-color:yellow; */
+li.seasons a {
+    /*color:red; */
 }
-div#myOtherDiv p{
-    /* background-color: yellow; */
-}
-
-div#yetAnotherDiv li {
-   /* background-color: yellow; */
+header > h3 {
+    /*background-color: yellow; */
 }
 
   </style>
@@ -75,31 +71,6 @@ div#yetAnotherDiv li {
             <li>Winter: <b>#005393</b></li>
         </ul>
     </p>
-    <div id="myDiv">This is a div with an ID of my Div</div>
-    <div id="myOtherDiv">
-        <p>Here's a p tag </p>
-        <p>Here's a p tag </p>
-        <p>Here's a p tag </p>
-        <p>Here's a p tag </p>
-        <p>Here's a p tag </p>
-
-    </div>
-
-    <div id="yetAnotherDiv">
-        <ul>
-            <li> I'm a list item</li>
-            <li> I'm a list item</li>
-            <li> I'm a list item</li>
-            <li> I'm a list item</li>
-            <li> I'm a list item</li>
-        </ul>
-
-
-
-
-
-    </div>
-
     <p>
     Aesthetic gentrify YOLO McSweeney's typewriter single-origin coffee. Slow-carb hella listicle lomo, Helvetica single-origin coffee butcher stumptown. Chambray try-hard church-key mumblecore, tote bag PBR cardigan. Retro Austin Brooklyn, blog Intelligentsia gentrify jean shorts sartorial bicycle rights gastropub. Aesthetic wayfarers Pitchfork, tattooed Carles quinoa meh leggings distillery pork belly banjo. Umami cred lumbersexual skateboard, pork belly Tumblr vegan letterpress. Fixie bicycle rights butcher chillwave, gluten-free health goth Echo Park locavore whatever.
     <img src="images/300x400.png" alt="Season Wear Goes Here" id="wear" />
@@ -123,73 +94,36 @@ div#yetAnotherDiv li {
   </main>
   <script src="js/main.js"></script>
   <script> 
-    //document.getElementById('myDiv').styles.backgroundColor = "yellow";
-    //document.querySelector("mydiv#myDiv").stlye.backgroundColor = "orange";
     
-    
-    //here's how we insert text using JS
-    
-    document.querySelector("div#myDiv").innerHTML ="Here is new text!"
-    
-    
-    $(function(){
-        //alert("I'm jQuery");
+    $('document').ready(function(){
+        //$("li.seasons a").css("color","orange");
 
+        /*change pic with an id of logo to season 
+        change pic with an id of wear to clothing */
 
-        //$("div#myDiv").css('background-color','orange');
-
-
-        // Here's how we use insert text using jQuery
 
         
-        
-        //$("div#myDiv").append(" Here is next text, provided by jQuery! "); 
+        $("li.seasons a").click(function(e){
+            e.preventDefault();
+            
+            let season = $(this).attr("href");
+            
+            $("#wear").attr('src', 'images/spring-wear.jpg');
 
+            $("#logo").attr('src', 'images/spring.gif');
 
+            $("header > h3").css('color','#2B7129');
 
-        //Here's a jQuery variable: 
-
-        let $theDiv = $("div#myDiv");
-
-
-        //Here we're using stacking chaininging (in order to see better)
-        //$("div#myDiv")
-        theDiv
-        .css('background-color','orange')
-        .css('border','2px solid black')
-        .append("Using a jQuery variable!")
-        .fadeOut(3000);
-
-
-        let counter = 1; 
-
-
-        let myPTags = $("div#myOtherDiv p");
-
-        console.log(myPTags);
-
-
-        $("div#myOtherDiv p").each(function(){
-            $(this).prepend(counter +  ') ');
-            counter++; 
+            $('html').css('background-color','#2B7129');
+            //alert(season);
 
 
         });
 
-        $("div#yetAnotherDiv")
-        .hide()
-        .fadeIn(3000,function(){
-            $("div#yetAnotherDiv li").each(function(){
-                $(this).slideDown(1000);
-            });
-
-        });
+    
+    });
 
 
-
-
-
- });
 
 
 </script>
